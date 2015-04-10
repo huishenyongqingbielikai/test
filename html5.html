@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script type="text/javascript">
+	window.onload=function(){
+		var c=document.getElementById('mycanvas');
+		var context=c.getContext('2d');
+		/*context.fillStyle='#002589';		//fillStyle  填充颜色
+		context.fillRect(50,25,100,50);		//fillRect  矩形（x轴，y轴，宽，高）
+		
+		//画线
+		context.moveTo(0,0);       //x轴 y轴  起始点
+		context.lineTo(200,200);   //x轴 y轴  终点
+		context.stroke();          //线
+		
+		//画三角形
+		context.fillStyle='#002589';
+		context.beginPath();     //起始点
+		context.moveTo(25,25);
+		context.lineTo(150,25);
+		context.lineTo(25,150);
+		context.closePath();    //封闭路径
+		context.fill();         //填充  填满
+		*/
+		//画圆形
+		context.fillStyle='#002589';
+		context.beginPath();
+		context.arc(100,100,50,0,Math.PI*2,true);    //创建弧/曲线(x轴,y轴,半径,起始角度,结束角度,顺时针); 
+		context.closePath();
+		context.fill();
+	}
+	</script>
+</head>
+<body>
+	<!--结构  布局-->
+	<header></header>      <!--头部-->
+	
+	<nav></nav>            <!--导航-->
+	
+	<section></section>    <!--区块  可以在里面写header   相当于div-->
+	<article></article>    <!--独立出来  相当于p h dl--> 
+	<aside></aside>        <!--侧边栏-->
+	
+	<footer></footer>      <!--底部-->
+	
+	<!--表单-->
+	<form action="123.php" name="myform" method="post" autocomplete > 	 <!--autocomplete  自动完成-->
+		<input type="text" required autofocus action="456.php"/>         <!--required  必须填写   autofocus 自动获取焦点  action=""  可以把这个text提交到另一个地方-->
+		<input type="email" required />                          <!--email  邮箱地址  不用自己验证-->
+		<input type="tel" required pattern="[0-9]{8}"/>0-9之间的8位数字	     <!--tel    电话号码  不用自己验证  pattern=""        	可以再这里直接写正则-->
+		<input type="text" value="请输入商品名称" list="url"/>  <!--关联 只要在list=""里输入id名就可以关联上-->
+		<datalist id="url">										 <!--datalist   数据列表 模拟小型数据库  相当于select-->
+			<option value="http//www.baidu.com">b百度</option>
+			<option value="http//www.sina.com.cn">b新浪</option>
+			<option value="http//www.taobao.com">q淘宝</option>
+			<option value="http//www.jd.com">q京东</option>
+		</datalist>
+		<input type="submit" value="提交"/>
+	</form>
+	<input type="password" value="123" form="myform" />         <!--form=""  可以把外面的也提交到id名为myform的表单里-->
+	
+	<!--canvas标签画图   canvas标签就是相当于一块画布-->
+	<canvas id="mycanvas" width="200" height="200" style="background:red;">你的浏览器是否支持</canvas>
+	<!--浏览器支持的话就可以看见画布，不支持的话文字就显示-->
+</body>
+</html>
